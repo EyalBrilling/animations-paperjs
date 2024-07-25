@@ -18,16 +18,16 @@ view.onMouseMove = function(event){
     mousePos = event.point;
 
     outerCircle.position = mousePos;
-    var mouseAnchorDist = mousePos.subtract(innerCircle.position);
+    var mouseAnchorDist = mousePos - innerCircle.position;
     console.log(mouseAnchorDist.length);
     if(mouseAnchorDist.length > outerRadius){
         console.log("out");
-    innerCircle.position = distConstrant(outerCircle.center,innerCircle.center,outerRadius);
+    innerCircle.position = distConstrant(outerCircle.position,innerCircle.position,outerRadius);
     }
 }
 
 function distConstrant(center,anchorPoint,distance){
-    return ((anchorPoint.subtract(center))* distance) + anchorPoint;
+    return ((anchorPoint - center).normalize() * distance) + center;
 
 }
 
