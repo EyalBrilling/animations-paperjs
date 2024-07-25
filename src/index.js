@@ -19,9 +19,7 @@ view.onMouseMove = function(event){
 
     outerCircle.position = mousePos;
     var mouseAnchorDist = mousePos - innerCircle.position;
-    console.log(mouseAnchorDist.length);
     if(mouseAnchorDist.length > outerRadius){
-        console.log("out");
     innerCircle.position = distConstrant(outerCircle.position,innerCircle.position,outerRadius);
     }
 }
@@ -30,16 +28,3 @@ function distConstrant(center,anchorPoint,distance){
     return ((anchorPoint - center).normalize() * distance) + center;
 
 }
-
-
-// // Create a circle at the center of the canvas
-// var circle = new paper.Path.Circle({
-//     center: paper.view.center,
-//     radius: 50,
-//     fillColor: 'blue'
-// });
-
-// // Animation function
-// paper.view.onFrame = function(event) {
-//     circle.scale(Math.sin(event.count / 10) * 0.01 + 1);
-// };
